@@ -1,4 +1,4 @@
-package ft.simple.financialTracker;
+package ft.simple.financial_tracker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
