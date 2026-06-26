@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import java.util.List;
 
 @Setter
 @Getter
@@ -14,7 +15,7 @@ import lombok.AllArgsConstructor;
 @Table(name = "category")
 
 public class Category{
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

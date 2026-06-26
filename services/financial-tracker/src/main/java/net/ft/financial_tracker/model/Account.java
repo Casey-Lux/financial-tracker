@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,8 +13,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "account")
-public class Accounts{
-    @id
+public class Account{
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

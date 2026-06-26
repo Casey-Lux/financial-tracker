@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @Entity
 @Table(name = "transaction")
 public class Transaction{
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
