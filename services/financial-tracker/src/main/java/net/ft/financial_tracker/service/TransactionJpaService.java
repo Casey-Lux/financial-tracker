@@ -16,7 +16,7 @@ public class TransactionJpaService{
         return repository.save(transaction);
     }
 
-    public Optional<Transaction> findAll(){
+    public List<Transaction> findAll(){
         return repository.findAll();
     }
 
