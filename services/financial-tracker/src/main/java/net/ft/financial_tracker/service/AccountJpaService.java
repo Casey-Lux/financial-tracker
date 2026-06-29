@@ -15,6 +15,4 @@ public class AccountJpaService{
     public Account save(Account account){
         return repository.save(account);
     }
-
-    }
 }

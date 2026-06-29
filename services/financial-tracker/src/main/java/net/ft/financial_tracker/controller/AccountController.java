@@ -19,6 +19,6 @@ public class AccountController{
 
     @PostMapping("/new")
     public Account save(@RequestBody Account account){
-        return service.save()
+        return service.save();
     }
 }
