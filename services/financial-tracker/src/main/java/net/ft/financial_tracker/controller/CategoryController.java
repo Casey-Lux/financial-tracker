@@ -18,7 +18,7 @@ public class CategoryController{
     final CategoryJpaService service;
 
     @PostMapping("/new")
-    public Category save(Category category){
+    public Category save(@RequestBody Category category){
         return service.save(category);
     }
 }
