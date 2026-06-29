@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TransactionRepository extends JpaRepository<Account, Long>{
-    Optional<Account> findById(Long id);
+public interface AccountRepository extends JpaRepository<Account, Long>{
     Account save(Account account);
-    Optional<Account> findByDescription(String description);
 }
