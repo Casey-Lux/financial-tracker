@@ -1,6 +1,7 @@
 package net.ft.financial_tracker.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Setter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
