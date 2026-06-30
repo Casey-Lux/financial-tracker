@@ -19,7 +19,7 @@ public class Account{
     private Long id;
 
     @Column(nullable = false)
-    private long userId;
+    private Long userId;
 
     @Column(nullable = false, length = 20)
     private String name;
