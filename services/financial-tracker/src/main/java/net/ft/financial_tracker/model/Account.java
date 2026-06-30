@@ -24,6 +24,7 @@ public class Account{
     @Column(nullable = false, length = 20)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactionList;
 }

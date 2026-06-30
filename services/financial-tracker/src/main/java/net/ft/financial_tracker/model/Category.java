@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.util.List;
-
 @Setter
 @Getter
 @NoArgsConstructor
@@ -22,6 +21,7 @@ public class Category{
     @Column(nullable = false, length = 20)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactionList;
 }
