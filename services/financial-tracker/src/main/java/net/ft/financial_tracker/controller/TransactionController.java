@@ -17,9 +17,9 @@ import java.util.Optional;
 public class TransactionController{
     final TransactionJpaService service;
 
-    @GetMapping()
-    public List<Transaction> history(){
-        return service.findAll();
+    @GetMapping(/{acc_id})
+    public List<Transaction> history(@PathVariable Long acc_id){
+        return service.findByAccount(acc_id);
     }
 
     @PostMapping()

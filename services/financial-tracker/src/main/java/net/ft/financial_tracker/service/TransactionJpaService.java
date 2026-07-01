@@ -23,4 +23,8 @@ public class TransactionJpaService{
     public Optional<Transaction> findByDescription(String description){
         return repository.findByDescription(description);
     }
+
+    public List<Transaction> findByAccount(Long acc_id){
+        return repository.findByAccount(acc_id);
+    }
 }
