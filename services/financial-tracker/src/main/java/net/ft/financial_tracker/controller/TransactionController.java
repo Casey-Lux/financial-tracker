@@ -12,7 +12,7 @@ import net.ft.financial_tracker.service.TransactionJpaService;
 import net.ft.financial_tracker.model.Transaction;
 import java.util.List;
 import java.util.Optional;
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @RestController
