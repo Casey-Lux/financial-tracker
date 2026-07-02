@@ -1,6 +1,6 @@
 package net.ft.financial_tracker.model;
 
-import net.ft.financial_tracker.enum.Type;
+import net.ft.financial_tracker.Enum.Type;
 import jakarta.persistence.*;
 import lombok.Setter;
 import lombok.Getter;
