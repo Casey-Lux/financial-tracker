@@ -1,5 +1,6 @@
 package net.ft.financial_tracker.model;
 
+import net.ft.financial_tracker.enum.Type;
 import jakarta.persistence.*;
 import lombok.Setter;
 import lombok.Getter;
@@ -22,6 +23,16 @@ public class Transaction{
 
     @Column(nullable = true, length = 120)
     private String description;
+
+    @Column(nullable = true)
+    private int importance;
+
+    @Column(nullable = false)
+    private LocalDate date;
+
+    @Enumerated(EnumType.String)
+    @Column(nullable = false)
+    private Type type;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
