@@ -6,6 +6,7 @@ import net.ft.financial_tracker.repository.TransactionRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @Service
@@ -24,7 +25,13 @@ public class TransactionJpaService{
         return repository.findByDescription(description);
     }
 
-    public List<Transaction> findByAccount(Long acc_id){
-        return repository.findByAccount_Id(acc_id);
+    public List<Transaction> findByAccount(Long acc_id, LocalDate start,  LocalDate end){
+        if(start==null){
+            return repository.findByAccount_Id(acc_id);
+        } else if (end==null) {
+            return repository.findByAccount_IdAndDateGreaterThanEqual(acc_id, start);
+        }else {
+            return repository.findByAccount_IdAndDateBetween(acc_id, start, end);
+        }
     }
 }
