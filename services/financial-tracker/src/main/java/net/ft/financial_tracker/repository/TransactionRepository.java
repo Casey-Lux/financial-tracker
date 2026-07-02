@@ -12,5 +12,5 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long>{
 
     Optional<Transaction> findByDescription(String description);
 
-    List<Transaction> findByAccount(Long acc_id);
+    List<Transaction> findByAccount_Id(Long acc_id);
 }
