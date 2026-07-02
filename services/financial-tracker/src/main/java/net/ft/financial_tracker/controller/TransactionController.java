@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 import lombok.AllArgsConstructor;
 import net.ft.financial_tracker.service.TransactionJpaService;
 import net.ft.financial_tracker.model.Transaction;
