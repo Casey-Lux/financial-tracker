@@ -1,6 +1,7 @@
 package net.ft.financial_tracker.model;
 
 import net.ft.financial_tracker.Enum.Type;
+import java.time.LocalDate;
 import jakarta.persistence.*;
 import lombok.Setter;
 import lombok.Getter;
@@ -30,7 +31,7 @@ public class Transaction{
     @Column(nullable = false)
     private LocalDate date;
 
-    @Enumerated(EnumType.String)
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Type type;
 
