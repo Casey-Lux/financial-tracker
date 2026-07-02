@@ -25,6 +25,6 @@ public class TransactionJpaService{
     }
 
     public List<Transaction> findByAccount(Long acc_id){
-        return repository.findByAccount(acc_id);
+        return repository.findByAccount_id(acc_id);
     }
 }
