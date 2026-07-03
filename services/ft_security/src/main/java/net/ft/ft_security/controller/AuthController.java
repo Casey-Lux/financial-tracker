@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
@@ -21,8 +21,9 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String save(){
-        return "user registered succesfully";
+    public ResponseEntity<UserResponse> register(@RequestBody RegisterRequest request){
+            UserResponse user = authService.register(request);
+            return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
     @PostMapping("/login")
