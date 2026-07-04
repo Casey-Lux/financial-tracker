@@ -6,6 +6,8 @@ import net.ft.ft_security.model.User;
 import net.ft.ft_security.model.Role;
 import net.ft.ft_security.repository.UserRepository;
 import net.ft.ft_security.repository.RoleRepository;
+import java.util.Optional;
+import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -14,9 +16,13 @@ public class AuthService{
     private final RoleRepository roleRepository;
 
     public void register(String email, String username, String password){
-        Role role = new Role();
-        role = roleRepository.findById(1L);
-        User user = new User(email, username, password, true, role);
-        userRepository.save(email, username, password, true, RoleEnum.DEMO)
+        Role role = roleRepository.findById(1L).
+            orElseThrow(() -> new RuntimeException("Rol no encontrado"));
+        User user = new User();
+        user.setEmail(email);
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setRoleList(List.of(role));
+        userRepository.save(user);
     }
 }

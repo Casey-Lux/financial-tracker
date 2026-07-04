@@ -6,7 +6,5 @@ import net.ft.ft_security.model.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long>{
-    Role save(Role role);
 
-    Role findById(Long id);
 }

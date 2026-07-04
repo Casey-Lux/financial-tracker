@@ -11,13 +11,13 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    @Value("${jwt.secret}")
+    @Value("${spring.application.security.jwt.secret-key}")
     private String secretKey;
 
-    @Value("${jwt.expiration}")
+    @Value("${spring.application.security.jwt.expiration}")
     private long jwtExpirationInMs;
 
-    private Key GetSigningKey(){
+    private Key getSigningKey(){
         byte[] keyBytes = secretKey.getBytes();
         return Keys.hmacShaKeyFor(keyBytes);
     };

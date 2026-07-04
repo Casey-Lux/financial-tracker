@@ -3,6 +3,7 @@ package net.ft.ft_security.controller;
 import net.ft.ft_security.dto.AuthRequest;
 import net.ft.ft_security.dto.RegisterRequest;
 import net.ft.ft_security.service.JwtService;
+import net.ft.ft_security.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import net.ft.ft_security.model.User;
 
 @Repository
-public interface UserRepository exteds JpaRepository<User, Long>{
-    void save(User user);
+public interface UserRepository extends JpaRepository<User, Long>{
+
 }
