@@ -1,7 +1,8 @@
 package net.ft.ft_security.controller;
 
-import com.security.auth.dto.AuthRequest;
-import com.security.auth.service.JwtService;
+import net.ft.ft_security.dto.AuthRequest;
+import net.ft.ft_security.dto.RegisterRequest;
+import net.ft.ft_security.service.JwtService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,6 +15,7 @@ import lombok.AllArgsConstructor;
 public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
+    private final AuthService authService;
 
     @GetMapping("/info")
     public String getInfo(){
@@ -21,17 +23,17 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserResponse> register(@RequestBody RegisterRequest request){
-            UserResponse user = authService.register(request);
-            return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    public ResponseEntity<String> register(@RequestBody RegisterRequest request){
+            authService.register(request.getEmail(), request.getUsername(), request.getPassword());
+            String token = jwtService.generateToken(request.getUsername());
+            return ResponseEntity.ok(token);
     }
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody AuthRequest request){
         authenticationManager.authenticate(
-                new UsernamePasswordAuthentionToken(request.getUsername(), request.getPassword())
+                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
         );
-(BadCredentialsException)
         String token = jwtService.generateToken(request.getUsername());
         return ResponseEntity.ok(token);
     }
