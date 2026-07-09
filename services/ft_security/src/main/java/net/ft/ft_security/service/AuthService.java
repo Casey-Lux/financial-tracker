@@ -15,7 +15,7 @@ public class AuthService{
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    public void register(String email, String username, String password){
+    public User register(String email, String username, String password){
         Role role = roleRepository.findById(1L).
             orElseThrow(() -> new RuntimeException("Rol no encontrado"));
         User user = new User();
@@ -23,6 +23,6 @@ public class AuthService{
         user.setUsername(username);
         user.setPassword(password);
         user.setRoleList(List.of(role));
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 }

@@ -2,6 +2,7 @@ package net.ft.ft_security.controller;
 
 import net.ft.ft_security.dto.AuthRequest;
 import net.ft.ft_security.dto.RegisterRequest;
+import net.ft.ft_security.model.User;
 import net.ft.ft_security.service.JwtService;
 import net.ft.ft_security.service.AuthService;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,8 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request){
-            authService.register(request.getEmail(), request.getUsername(), request.getPassword());
-            String token = jwtService.generateToken(request.getUsername());
+            User user = authService.register(request.getEmail(), request.getUsername(), request.getPassword());
+            String token = jwtService.generateToken(String.valueOf(user.getId()));
             return ResponseEntity.ok(token);
     }
 

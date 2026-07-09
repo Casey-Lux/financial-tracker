@@ -36,4 +36,20 @@ public class SecurityConfig{
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    CommandLineRunner init() {
+        return args -> {
+            @autowired
+            final RoleService roleService;
+            Role role = new Role();
+
+            role.setName("ADMIN");
+            roleService.save(role);
+            role.setName("USER");
+            roleService.save(role);
+            role.setName("DEMO");
+            roleService.save(role);
+        };
+    }
 }
