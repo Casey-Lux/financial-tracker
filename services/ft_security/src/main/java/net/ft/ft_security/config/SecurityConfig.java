@@ -12,6 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig{
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -19,8 +20,8 @@ public class SecurityConfig{
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/auth/login",
-                                "/auth/register")
+                                "/api/v1/auth/login",
+                                "/api/v1/auth/register")
                         .permitAll()
                         .anyRequest().authenticated()
                 );
@@ -37,19 +38,4 @@ public class SecurityConfig{
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    CommandLineRunner init() {
-        return args -> {
-            @autowired
-            final RoleService roleService;
-            Role role = new Role();
-
-            role.setName("ADMIN");
-            roleService.save(role);
-            role.setName("USER");
-            roleService.save(role);
-            role.setName("DEMO");
-            roleService.save(role);
-        };
-    }
 }
