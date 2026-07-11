@@ -5,11 +5,11 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import java.security.KeyPair;
 import java.util.Date;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class JwtService {
 
